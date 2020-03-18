@@ -26,12 +26,11 @@ LABEL version="2.0.0" \
 	maintainer="Clever Cloud CI <ci@clever-cloud.com>" \
 	description="Command Line Interface for Clever Cloud." \
 	license="MIT"
-
-WORKDIR /
+VOLUME        ["/actions"]
+WORKDIR /actions
 
 COPY --from=build /tmp/fakeroot/ /
 
 ## The loader search ld-linux-x86-64.so.2 in /lib64 but the folder does not exist
 RUN ln -s lib lib64
-WORKDIR /action
 ENTRYPOINT ["clever"]
