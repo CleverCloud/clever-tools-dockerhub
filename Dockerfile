@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
 	curl \
 	git
 
-RUN curl --output clever-tools_linux.tar.gz https://clever-tools.clever-cloud.com/releases/5.0.1/clever-tools-5.0.1_linux.tar.gz \
+RUN curl --output clever-tools_linux.tar.gz https://clever-tools.clever-cloud.com/releases/5.0.2/clever-tools-5.0.2_linux.tar.gz \
 	&& mkdir clever-tools_linux \
 	&& tar xvzf clever-tools_linux.tar.gz -C clever-tools_linux --strip-components=1 \
 	&& cp clever-tools_linux/clever /usr/local/bin
@@ -21,7 +21,7 @@ RUN \
 
 FROM busybox:glibc AS release
 
-LABEL version="5.0.1" \
+LABEL version="5.0.2" \
 	maintainer="Clever Cloud <ci@clever-cloud.com>" \
 	description="Command Line Interface for Clever Cloud." \
 	license="Apache-2.0"
